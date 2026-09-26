@@ -1,16 +1,16 @@
-//Game Engine
-
-
+// Include your header files
+#include "ball.hpp"
 #include <raylib.h>
-//Include your header files 
 
 int main(int argc, char* argv[])
 {
 
-   //Reference your scripts and create objects 
+    // Reference your scripts and create objects
+    Ball ball;
 
     int screenWidth = 1920;
     int screenHeight = 1080;
+    bool spacePressed = false;
 
     InitWindow(screenWidth, screenHeight, "Toxic Engine");
     SetTargetFPS(60);
@@ -19,14 +19,23 @@ int main(int argc, char* argv[])
         BeginDrawing();
 
         // Draw Functions
-       
+        ball.OnDraw();
 
         ClearBackground(BLACK);
 
-        // Update Functions
+        // Handle Inputs
+        if (IsKeyPressed(KEY_SPACE))
+        {
+            spacePressed = true;
+        }
 
+        //  Update Functions
+        if (spacePressed == true)
+        {
 
-      
+            ball.Update();
+        }
+
         EndDrawing();
     }
     CloseWindow();
