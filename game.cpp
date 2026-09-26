@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
             ball.Update();
         }
-
+        pad();
         EndDrawing();
     }
     CloseWindow();
